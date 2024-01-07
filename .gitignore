@@ -26,7 +26,7 @@ testem.log
 typings/
 .angular/
 StudentAssets/
-
+.vscode/
 # e2e
 e2e/*.js
 e2e/*.map
@@ -125,7 +125,6 @@ ipch/
 *.cachefile
 *.VC.db
 *.VC.VC.opendb
-
 # Visual Studio profiler
 *.psess
 *.vsp
