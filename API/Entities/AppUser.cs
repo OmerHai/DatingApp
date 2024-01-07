@@ -1,4 +1,4 @@
-﻿namespace API;
+﻿namespace API.Entities;
 
 // Define a public class named AppUser
 public class AppUser
