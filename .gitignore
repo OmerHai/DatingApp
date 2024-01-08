@@ -26,13 +26,14 @@ testem.log
 typings/
 .angular/
 StudentAssets/
-
+.vscode/
 # e2e
 e2e/*.js
 e2e/*.map
 
 # System Files
 .DS_Store/
+
 
 # End of https://www.toptal.com/developers/gitignore/api/angular
 
@@ -125,7 +126,6 @@ ipch/
 *.cachefile
 *.VC.db
 *.VC.VC.opendb
-
 # Visual Studio profiler
 *.psess
 *.vsp
@@ -310,3 +310,4 @@ __pycache__/
 # tools/
 
 # End of https://www.toptal.com/developers/gitignore/api/aspnetcore
+API/appsettings.json
