@@ -311,3 +311,5 @@ __pycache__/
 
 # End of https://www.toptal.com/developers/gitignore/api/aspnetcore
 API/appsettings.json
+API/datingapp.db-shm
+API/datingapp.db-wal
