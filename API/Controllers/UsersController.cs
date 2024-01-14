@@ -5,9 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers;
 
-[ApiController] // Indicates that this controller is an API controller
-[Route("api/[controller]")] // Defines the route for this controller as "api/[controller]"
-public class UsersController : ControllerBase // Inherits from ControllerBase class
+public class UsersController : BaseApiController // Inherits from ControllerBase class
 {
     private readonly DataContext _context; // Declares a private field to hold an instance of DataContext
 
