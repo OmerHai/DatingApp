@@ -41,6 +41,30 @@ public class AccountController : BaseApiController
         return user; // Returning the registered user as ActionResult
     }
 
+    // Handles HTTP POST requests for user login
+    [HttpPost("login")]
+    public async Task<ActionResult<AppUser>> Login(LoginDto loginDto)
+    {
+        // Retrieve the user from the database based on the provided username
+        var user = await _context.Users.SingleOrDefaultAsync(x => x.UserName == loginDto.Username);
+
+        // If the user is not found, return Unauthorized
+        if (user == null)
+            return Unauthorized();
+
+        using var hmac = new HMACSHA512(user.PasswordSalt); // Creating an instance of HMACSHA512 with the user's password salt
+        var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginDto.Password));
+
+        // Compare the computed hash with the stored password hash byte by byte
+        for (int i = 0; i < computedHash.Length; i++)
+        {
+            if (computedHash[i] != user.PasswordHash[i])
+                return Unauthorized("invalid password");
+        }
+
+        return user; // Return the authenticated user as ActionResult
+    }
+
     // Checks if a user with the given username already exists in the database
     private async Task<bool> UserExists(string username)
     {
